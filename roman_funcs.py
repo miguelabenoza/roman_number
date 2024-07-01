@@ -1,4 +1,3 @@
-
 values = {
     1:'I',
     5:'V',
@@ -10,6 +9,18 @@ values = {
 }
 
 def to_roman(n):
-    result = values[n]
+    result = ""
+
+    if n <= 3:
+        result = n * values[1]
+    elif n == 4:
+        result = values[1] + values[5]
+    elif n < 9:
+        result = values[5] + (n-5) * values[1]
+    elif n == 9:
+        result = values[1] + values[10]
+    else:
+        result = values[n]
     
     return result
+    
